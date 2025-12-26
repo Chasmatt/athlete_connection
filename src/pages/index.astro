@@ -1,16 +1,58 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FloatingCard from "../components/FloatingCard.astro";
+import CardNav from "../components/CardNav.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout>
+ <FloatingCard>
+  <!-- NAV -->
+  <CardNav />
+
+  <!-- MAIN CONTENT -->
+  <div class="flex flex-col justify-center text-center px-6 py-10 md:py-16 lg:py-20 flex-1">
+    <h1 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide mb-4">
+      ATHLETE CONNECTION
+    </h1>
+
+    <h2 class="text-xs sm:text-sm md:text-base tracking-widest uppercase text-muted mb-6">
+      Sports Group
+    </h2>
+
+    <p class="text-xs sm:text-sm md:text-base text-muted max-w-md mx-auto">
+      Athlete Connection Sports Group is a trusted bridge connecting high school, college,
+      and professional basketball players with global basketball opportunities, elite
+      representation, and long-term career development.
+    </p>
+
+    <!-- CTA -->
+    <div class="mt-8 flex justify-center">
+      <a
+        href="/contact"
+        class="inline-flex items-center justify-center rounded-full bg-white text-black px-8 py-3 text-sm md:text-base font-medium transition hover:bg-white/90"
+      >
+        Start Your Journey
+      </a>
+    </div>
+  </div>
+
+  <!-- SERVICES MARQUEE (BOTTOM) -->
+  <div class="relative overflow-hidden py-4">
+    <div class="marquee text-xs md:text-sm uppercase tracking-widest text-muted">
+      <span>Athlete Management</span>
+      <span>Consulting Services</span>
+      <span>Brand & Marketing Development</span>
+      <span>Team & Agent Partnerships</span>
+      <span>Events & Exposure</span>
+
+      <span>Athlete Management</span>
+      <span>Consulting Services</span>
+      <span>Brand & Marketing Development</span>
+      <span>Team & Agent Partnerships</span>
+      <span>Events & Exposure</span>
+    </div>
+  </div>
+</FloatingCard>
+
+
+</BaseLayout>

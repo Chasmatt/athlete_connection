@@ -1,0 +1,27 @@
+---
+const { className = "" } = Astro.props;
+---
+
+<div
+  class="
+    relative
+    flex
+    flex-col
+    rounded-2xl
+    bg-white/10
+    backdrop-blur-xl
+    shadow-[0_20px_50px_rgba(0,0,0,0.6),0_8px_20px_rgba(0,0,0,0.4)]
+    overflow-hidden
+    min-h-[60vh]
+    md:min-h-[65vh]
+    lg:min-h-[70vh]
+  "
+>
+  <!-- glass edge -->
+  <div class="pointer-events-none absolute inset-0 rounded-2xl ring-1 ring-white/10"></div>
+
+  <!-- IMPORTANT: slot must stretch -->
+  <div class="relative flex flex-col flex-1">
+    <slot />
+  </div>
+</div>
