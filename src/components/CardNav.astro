@@ -36,16 +36,14 @@ const currentPath = Astro.url.pathname;
   >
     Services
   </a>
-     <a
-    href="/athletes"
-    class={`transition ${
-      currentPath === "/athletes"
-        ? "text-white font-medium"
-        : "text-muted hover:text-white"
-    }`}
-  >
-    Athletes
-  </a>
+    <a
+  href="#"
+  aria-disabled="true"
+  class="text-white/40 pointer-events-none cursor-not-allowed select-none"
+>
+  Athletes
+</a>
+
      <a
     href="/contact"
     class={`transition ${
