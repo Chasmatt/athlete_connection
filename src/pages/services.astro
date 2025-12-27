@@ -1,0 +1,73 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FloatingCard from "../components/FloatingCard.astro";
+import CardNav from "../components/CardNav.astro";
+import ServiceCard from "../components/ServiceCard.astro";
+
+---
+
+<BaseLayout>
+  <FloatingCard>
+    <div class="flex flex-col h-full">
+
+      <!-- NAV INSIDE CARD -->
+      <CardNav />
+
+      <!-- PAGE HEADER 
+      <div class="px-6 py-12 md:py-16 text-center">
+       <h1 class="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-wide mb-4">
+
+          SERVICES
+        </h1> -->
+        <!-- SERVICES GRID -->
+<div
+  class="
+    px-6 pb-12
+    grid
+    grid-cols-1
+    gap-6
+    md:gap-8
+    lg:grid-cols-6
+    lg:gap-6
+  "
+>
+  <!-- Top row (2 cards) -->
+  <div class="lg:col-span-3">
+    <ServiceCard
+      title="Athlete Management"
+      description="Contract negotiation, overseas placement, housing coordination, and financial planning."
+    />
+  </div>
+
+  <div class="lg:col-span-3">
+    <ServiceCard
+      title="Consulting Services"
+      description="Career consultation, contract review, league and agent matching, and post-career planning."
+    />
+  </div>
+
+  <!-- Bottom row (3 cards) -->
+  <div class="lg:col-span-2">
+    <ServiceCard
+      title="Brand & Marketing Development"
+      description="Social media strategy, logo creation, sponsorship outreach, and PR & media training."
+    />
+  </div>
+
+  <div class="lg:col-span-2">
+    <ServiceCard
+      title="Team & Agent Partnerships"
+      description="Scouting, vetting, highlight and resume creation, and player referrals."
+    />
+  </div>
+
+  <div class="lg:col-span-2">
+    <ServiceCard
+      title="Events & Exposure"
+      description="Showcases, combines, training camps, and sponsorship events."
+    />
+  </div>
+</div>
+
+  </FloatingCard>
+</BaseLayout>

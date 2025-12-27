@@ -1,0 +1,55 @@
+---
+const { title, description } = Astro.props;
+---
+
+<div
+  class="
+    group
+    relative
+    h-56
+    md:h-64
+    bg-white/10 backdrop-blur-xl
+    shadow-xl
+    p-6
+    -2xl
+    lg:-none
+    overflow-hidden
+    cursor-pointer
+    transition
+    flex
+    items-center
+    justify-center
+    text-center
+  "
+>
+  <!-- TITLE -->
+  <h3
+    class="
+      text-lg font-semibold
+      transition
+      group-hover:opacity-0
+      group-focus-within:opacity-0
+    "
+  >
+    {title}
+  </h3>
+
+  <!-- DESCRIPTION -->
+  <p
+    class="
+      absolute inset-0
+      flex items-center justify-center
+      text-center
+      px-6
+      text-xs sm:text-sm
+      text-muted
+      leading-relaxed
+      opacity-0
+      transition
+      group-hover:opacity-100
+      group-focus-within:opacity-100
+    "
+  >
+    {description}
+  </p>
+</div>
