@@ -28,4 +28,24 @@
         animation: none;
     }
 }
+/* Remove native select styling & blue highlights */
+select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+}
+
+    /* Remove blue highlight on focus */
+    select:focus {
+        outline: none;
+        box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+    }
+
+    /* Style dropdown options */
+    select option {
+        color: black;
+    }
+
 

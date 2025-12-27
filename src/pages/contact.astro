@@ -1,0 +1,245 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import FloatingCard from "../components/FloatingCard.astro";
+import CardNav from "../components/CardNav.astro";
+---
+
+<BaseLayout backgroundImage="/images/contact.jpg">
+  <FloatingCard>
+    <div class="flex flex-col h-full">
+
+      <CardNav />
+
+<div
+  class="
+    max-w-md
+    mx-auto
+    border
+    border-white/20
+    rounded-2xl
+    px-6
+    py-8
+    md:px-8
+    md:py-10
+  "
+>
+<!-- Form Header -->
+  <div class="text-center mb-8">
+    <h2 class="text-sm md:text-base uppercase tracking-widest text-white/70">
+     Contact us for more information about our services
+    </h2>
+  </div>
+  <form
+  name="contact"
+  method="POST"
+  action="/thank-you"
+  data-netlify="true"
+  netlify-honeypot="bot-field"
+  class="space-y-6"
+>
+<input type="hidden" name="form-name" value="contact" />
+
+<p class="hidden">
+  <label>
+    Don’t fill this out:
+    <input name="bot-field" />
+  </label>
+</p>
+
+
+
+
+          <!-- Athlete Full Name -->
+          <div>
+            <label class="block text-center text-xs uppercase tracking-wide mb-2 text-muted">
+              Athlete's Full Name
+            </label>
+            <input
+              type="text"
+              name="athlete-name"
+              required
+              class="w-full rounded-full bg-white/10 border border-white/20 px-5 py-3 text-sm text-white"
+            />
+          </div>
+<!-- Athlete Level -->
+<div class="relative">
+  <label class="block text-center text-xs uppercase tracking-wide mb-2 text-muted">
+    Athlete Level
+  </label>
+
+  <!-- Hidden input for Netlify -->
+  <input type="hidden" name="athlete-level" id="athlete-level" />
+
+  <!-- Dropdown button -->
+  <button
+    type="button"
+    id="level-toggle"
+    class="w-full rounded-full bg-white/10 border border-white/20 px-5 py-3 text-sm text-white flex justify-between items-center"
+  >
+    <span id="level-label" class="text-white/70">
+      Select Athlete Level
+    </span>
+    <svg
+      class="h-4 w-4 text-white/60"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      viewBox="0 0 24 24"
+    >
+      <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+    </svg>
+  </button>
+
+  <!-- Dropdown menu -->
+  <div
+    id="level-menu"
+    class="absolute mt-2 w-full rounded-xl bg-black/90 border border-white/10 shadow-xl hidden z-50"
+  >
+    <button type="button" data-value="High School" class="w-full px-5 py-3 text-left hover:bg-white/10">
+      High School
+    </button>
+    <button type="button" data-value="College" class="w-full px-5 py-3 text-left hover:bg-white/10">
+      College
+    </button>
+    <button type="button" data-value="Pro US" class="w-full px-5 py-3 text-left hover:bg-white/10">
+      Pro (US)
+    </button>
+    <button type="button" data-value="Pro Overseas" class="w-full px-5 py-3 text-left hover:bg-white/10">
+      Pro (Overseas)
+    </button>
+  </div>
+</div>
+
+          <!-- Inquiring Party -->
+          <div class="relative">
+            <label class="block text-center text-xs uppercase tracking-wide mb-2 text-muted">
+              Inquiring Party
+            </label>
+
+            <input type="hidden" name="inquiring-party" id="inquiring-party" />
+
+            <button
+              type="button"
+              id="dropdown-toggle"
+              class="w-full rounded-full bg-white/10 border border-white/20 px-5 py-3 text-sm text-white flex justify-between items-center"
+            >
+              <span id="dropdown-label" class="text-white/70">
+                Select Inquiring Party
+              </span>
+              <svg class="h-4 w-4 text-white/60" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+              </svg>
+            </button>
+
+            <div
+              id="dropdown-menu"
+              class="absolute mt-2 w-full rounded-xl bg-black/90 border border-white/10 shadow-xl hidden"
+            >
+              <button type="button" data-value="athlete" class="w-full px-5 py-3 text-left hover:bg-white/10">
+                Athlete
+              </button>
+              <button type="button" data-value="parent" class="w-full px-5 py-3 text-left hover:bg-white/10">
+                Parent / Guardian
+              </button>
+            </div>
+          </div>
+
+          <!-- Parent / Guardian -->
+          <div id="guardian-field" class="hidden">
+            <label class="block text-center text-xs uppercase tracking-wide mb-2 text-muted">
+              Parent / Guardian Name
+            </label>
+            <input
+              type="text"
+              name="guardian-name"
+              class="w-full rounded-full bg-white/10 border border-white/20 px-5 py-3 text-sm text-white"
+            />
+          </div>
+
+          <!-- Email -->
+          <div>
+            <label class="block text-center text-xs uppercase tracking-wide mb-2 text-muted">
+              Email Address
+            </label>
+            <input
+              type="email"
+              name="email"
+              required
+              class="w-full rounded-full bg-white/10 border border-white/20 px-5 py-3 text-sm text-white"
+            />
+          </div>
+
+          <button
+            type="submit"
+            class="w-full rounded-full bg-white text-black py-3 font-medium"
+          >
+            Submit
+          </button>
+
+        </form>
+      </div>
+    </div>
+  </FloatingCard>
+</BaseLayout>
+
+<script>
+  const toggle = document.getElementById("dropdown-toggle");
+  const menu = document.getElementById("dropdown-menu");
+  const label = document.getElementById("dropdown-label");
+  const hiddenInput = document.getElementById("inquiring-party");
+  const guardian = document.getElementById("guardian-field");
+
+  toggle.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    menu.classList.toggle("hidden");
+  });
+
+  menu.addEventListener("pointerdown", (e) => {
+    const button = e.target.closest("button");
+    if (!button) return;
+
+    const value = button.dataset.value;
+    hiddenInput.value = value;
+    label.textContent = button.textContent;
+    label.classList.remove("text-white/70");
+
+    guardian.classList.toggle("hidden", value === "athlete");
+    menu.classList.add("hidden");
+  });
+
+  document.addEventListener("pointerdown", (e) => {
+    if (!toggle.contains(e.target) && !menu.contains(e.target)) {
+      menu.classList.add("hidden");
+    }
+  });
+</script>
+<script>
+  // Athlete Level dropdown
+  const levelToggle = document.getElementById("level-toggle");
+  const levelMenu = document.getElementById("level-menu");
+  const levelLabel = document.getElementById("level-label");
+  const levelInput = document.getElementById("athlete-level");
+
+  levelToggle.addEventListener("pointerdown", (e) => {
+    e.preventDefault();
+    levelMenu.classList.toggle("hidden");
+  });
+
+  levelMenu.addEventListener("pointerdown", (e) => {
+    const button = e.target.closest("button");
+    if (!button) return;
+
+    levelInput.value = button.dataset.value;
+    levelLabel.textContent = button.dataset.value;
+    levelLabel.classList.remove("text-white/70");
+    levelMenu.classList.add("hidden");
+  });
+
+  document.addEventListener("pointerdown", (e) => {
+    if (!levelToggle.contains(e.target) && !levelMenu.contains(e.target)) {
+      levelMenu.classList.add("hidden");
+    }
+  });
+</script>
+
+
