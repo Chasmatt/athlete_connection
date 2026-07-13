@@ -1,0 +1,27 @@
+<!--
+  Netlify Forms detection stub.
+
+  Netlify scans static HTML at build time to register forms. Because Astro
+  pages are processed through its Vite pipeline, the built HTML for /contact
+  can miss the `data-netlify` attribute that the detector needs. This file
+  lives in /public and ships to /dist/__forms.html unmodified, so Netlify's
+  parser sees it and registers the "contact" form. The real form on
+  /contact.astro then submits to it.
+
+  If you add or rename a field on the contact form, add or rename it here
+  too — Netlify only stores fields it saw during build.
+-->
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>Netlify Forms</title></head>
+<body>
+<form name="contact" data-netlify="true" netlify-honeypot="bot-field" hidden>
+  <input type="text" name="athlete-name" />
+  <input type="text" name="athlete-level" />
+  <input type="text" name="inquiring-party" />
+  <input type="text" name="guardian-name" />
+  <input type="email" name="email" />
+  <input type="text" name="bot-field" />
+</form>
+</body>
+</html>
